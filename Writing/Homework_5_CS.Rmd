@@ -38,4 +38,7 @@ homicide_baltimore <- homicide %>%
 
 head(homicide_baltimore, n =5 )
 
+homicide_baltimore$month_year <- as.Date(as.yearmon(homicide_baltimore$month_year), frac = 1) ## Reassigning newly created month year column as a date class
+
+
 ```
