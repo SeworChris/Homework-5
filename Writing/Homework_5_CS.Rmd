@@ -29,6 +29,8 @@ homicide <- read.csv("~/MEGAsync/Training2021/R_Class_CSU/Homework-5/Data/homici
 ## Creating a new Column - city_name
 homicide_baltimore <- homicide %>% 
   mutate (city_name = paste(city, state, sep = ", ")) %>% 
-  filter(city == "Baltimore")
+  filter(city == "Baltimore") %>% ## Filtering data to only include cases in Baltimore
+  mutate(reported_date = ymd(reported_date),
+         month_year = format_ISO8601(reported_date, precision = "ym")) %>% ##Reassigning column as date class and extracting month and year details into a new column
   
 ```
