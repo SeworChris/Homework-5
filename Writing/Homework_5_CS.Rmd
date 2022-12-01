@@ -40,5 +40,9 @@ head(homicide_baltimore, n =5 )
 
 homicide_baltimore$month_year <- as.Date(as.yearmon(homicide_baltimore$month_year), frac = 1) ## Reassigning newly created month year column as a date class
 
+## Extracting only month details from  month-year column and creating a new variable for season
+homicide_baltimore<-homicide_baltimore %>% 
+  mutate(actual_month = month(month_year),
+         season = actual_month %in% c (5:9)) 
 
 ```
