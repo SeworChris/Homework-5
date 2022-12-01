@@ -49,3 +49,15 @@ homicide_baltimore<-homicide_baltimore %>%
 homicide_baltimore$season[homicide_baltimore$season == "TRUE"] <- "Summer"
 homicide_baltimore$season[homicide_baltimore$season == "FALSE"] <- "Winter"
 ```
+
+
+
+```{r Generating Plot, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 10,fig.height= 3}
+
+homicide_baltimore %>% 
+  ggplot(aes(x = month_year))+
+  geom_bar(aes(weight = total_cases, fill = season), color = "black")+
+             scale_fill_manual(values= c("Summer" = "grey", "Winter" = "cadetblue3"))+
+  
+
+```
