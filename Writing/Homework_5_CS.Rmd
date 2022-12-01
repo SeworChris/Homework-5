@@ -35,6 +35,7 @@ homicide_baltimore <- homicide %>%
   group_by(month_year) %>% ## Creating a data frame which includes month and year details and case counts 
   count() %>% 
   rename (total_cases = n) 
-  
-  
+
+head(homicide_baltimore, n =5 )
+
 ```
