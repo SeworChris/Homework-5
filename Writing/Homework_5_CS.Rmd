@@ -24,3 +24,10 @@ homicide <- read.csv("~/MEGAsync/Training2021/R_Class_CSU/Homework-5/Data/homici
 
 ```
 
+```{r Reading_Data, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE}
+
+## Creating a new Column - city_name
+homicide_baltimore <- homicide %>% 
+  mutate (city_name = paste(city, state, sep = ", "))
+  
+```
