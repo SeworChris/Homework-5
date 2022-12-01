@@ -63,7 +63,11 @@ homicide_baltimore %>%
   geom_vline(xintercept = as.numeric(as.Date("2015-04-15")), 
               color = "red", linetype= "dashed", 
               lwd = 1.0)+
-  annotate("text", x= as.Date("2015-04-15"), y= 45, label="Arrest of Freddie Gray", color= "azure3", hjust= 1)
+  annotate("text", x= as.Date("2015-04-15"), y= 45, label="Arrest of Freddie Gray", color= "azure3", hjust= 1)+
+  labs(x = "Date", 
+       y = "Monthly homicides" )+
+  ggtitle(label= "Homicides in Baltimore, MD")+
+  theme_dark()+
+  theme(legend.position = "bottom", legend.title=element_blank())
   
-
 ```
