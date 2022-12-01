@@ -17,4 +17,10 @@ library(zoo)
 ```
 
 
+```{r Reading_Data, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE}
+## Reading data
+
+homicide <- read.csv("~/MEGAsync/Training2021/R_Class_CSU/Homework-5/Data/homicide-data.csv")
+
+```
 
