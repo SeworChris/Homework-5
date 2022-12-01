@@ -36,8 +36,6 @@ homicide_baltimore <- homicide %>%
   count() %>% 
   rename (total_cases = n) 
 
-head(homicide_baltimore, n =5 )
-
 homicide_baltimore$month_year <- as.Date(as.yearmon(homicide_baltimore$month_year), frac = 1) ## Reassigning newly created month year column as a date class
 
 ## Extracting only month details from  month-year column and creating a new variable for season
@@ -48,21 +46,23 @@ homicide_baltimore<-homicide_baltimore %>%
 ## Renaming TRUE and FALSE logical vector to Summer and Winter
 homicide_baltimore$season[homicide_baltimore$season == "TRUE"] <- "Summer"
 homicide_baltimore$season[homicide_baltimore$season == "FALSE"] <- "Winter"
+
+head(homicide_baltimore, n =5 )
 ```
 
 
 
-```{r Generating Plot, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 10,fig.height= 3}
+```{r Generating Plot, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 8,fig.height= 2.5}
 
 homicide_baltimore %>% 
   ggplot(aes(x = month_year))+
   geom_bar(aes(weight = total_cases, fill = season), color = "black")+
              scale_fill_manual(values= c("Summer" = "grey", "Winter" = "cadetblue3"))+
-  geom_smooth(aes(y = total_cases), se = FALSE, span = 0.1) +
+  geom_smooth(aes(y = total_cases), se = FALSE, span = 0.1, lwd = 2.0) +
   scale_x_date(date_labels = "%Y")+
   geom_vline(xintercept = as.numeric(as.Date("2015-04-15")), 
               color = "red", linetype= "dashed", 
-              lwd = 1.0)+
+              lwd = 2.0)+
   annotate("text", x= as.Date("2015-04-15"), y= 45, label="Arrest of Freddie Gray", color= "azure3", hjust= 1)+
   labs(x = "Date", 
        y = "Monthly homicides" )+
