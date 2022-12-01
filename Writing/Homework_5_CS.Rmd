@@ -1,7 +1,7 @@
 ---
 title: "Homework 5_draft_CS"
 author: "Christian Sewor"
-date: "2022-12-01"
+date: "2022-11-30"
 output: html_document
 ---
 
@@ -58,11 +58,11 @@ homicide_baltimore %>%
   ggplot(aes(x = month_year))+
   geom_bar(aes(weight = total_cases, fill = season), color = "black")+
              scale_fill_manual(values= c("Summer" = "grey", "Winter" = "cadetblue3"))+
-  geom_smooth(aes(y = total_cases), se = FALSE, span = 0.1, lwd = 2.0) +
+  geom_smooth(aes(y = total_cases), se = FALSE, span = 0.1, lwd = 1.5) +
   scale_x_date(date_labels = "%Y")+
   geom_vline(xintercept = as.numeric(as.Date("2015-04-15")), 
               color = "red", linetype= "dashed", 
-              lwd = 2.0)+
+              lwd = 1.5)+
   annotate("text", x= as.Date("2015-04-15"), y= 45, label="Arrest of Freddie Gray", color= "azure3", hjust= 1)+
   labs(x = "Date", 
        y = "Monthly homicides" )+
