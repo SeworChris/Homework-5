@@ -32,7 +32,7 @@ homicide_baltimore <- homicide %>%
   filter(city == "Baltimore") %>% ## Filtering data to only include cases in Baltimore
   mutate(reported_date = ymd(reported_date),
          month_year = format_ISO8601(reported_date, precision = "ym")) %>% ##Reassigning column as date class and extracting month and year details into a new column
-  group_by(month_year) %>% ### Creating a data frame which includes month and year details and case counts 
+  group_by(month_year) %>% ## Creating a data frame which includes month and year details and case counts 
   count() %>% 
   rename (total_cases = n) 
   
