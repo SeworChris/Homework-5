@@ -45,4 +45,7 @@ homicide_baltimore<-homicide_baltimore %>%
   mutate(actual_month = month(month_year),
          season = actual_month %in% c (5:9)) 
 
+## Renaming TRUE and FALSE logical vector to Summer and Winter
+homicide_baltimore$season[homicide_baltimore$season == "TRUE"] <- "Summer"
+homicide_baltimore$season[homicide_baltimore$season == "FALSE"] <- "Winter"
 ```
