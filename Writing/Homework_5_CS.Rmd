@@ -21,7 +21,7 @@ library(zoo)
 ## Reading data
 
 homicide <- read.csv("~/MEGAsync/Training2021/R_Class_CSU/Homework-5/Data/homicide-data.csv")
-
+head (homicide, n=5)
 ```
 
 ```{r Reading_Data, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE}
@@ -32,5 +32,9 @@ homicide_baltimore <- homicide %>%
   filter(city == "Baltimore") %>% ## Filtering data to only include cases in Baltimore
   mutate(reported_date = ymd(reported_date),
          month_year = format_ISO8601(reported_date, precision = "ym")) %>% ##Reassigning column as date class and extracting month and year details into a new column
+  group_by(month_year) %>% ### Creating a data frame which includes month and year details and case counts 
+  count() %>% 
+  rename (total_cases = n) 
+  
   
 ```
